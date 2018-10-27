@@ -41,12 +41,12 @@ def p4_3(x):
 # print(fsolve(p4_3, [1]))  # [0.22369829]
 
 ## ????????
-# def p4_4(x):
-#     d=50
-#     f=0.05
-#     res=float(x[0])
-#     return [res-math.sqrt(1/2/10000*(4*res*(1+res)+math.log(4*(10000)**(2*d)/f)))]
+def p4_4(x):
+    d=50
+    f=0.05
+    res=float(x[0])
+    return [res-math.sqrt(1/2/10000*(4*res*(1+res)+math.log(4*(10000)**(2*d)/f)))]
 
 
-# print(fsolve(p4_4, [1]))
+print(fsolve(p4_4, [1]))
 
