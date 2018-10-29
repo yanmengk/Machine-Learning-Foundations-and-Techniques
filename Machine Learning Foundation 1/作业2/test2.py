@@ -17,40 +17,59 @@ def func(N):
 # print(func(480000))  # 1.91e-05
 
 # Problem 4
-def p4_1(d,f):
-    return math.sqrt(8/10000*math.log(4*((2*10000)**d)/f))
-def p4_2(d,f):
-    return math.sqrt(2*math.log(2*10000*((10000)**d))/10000)+math.sqrt(2/10000*math.log(1/f))+1/10000
-
-
-
-
-def p4_5(d,f):
-    return math.sqrt(16/10000*(math.log(2*((10000)**d)/math.sqrt(f))))
+def p4_1(d,f,N):
+    return math.sqrt(8/N*math.log(4*((2*N)**d)/f))
+def p4_2(d,f,N):
+    return math.sqrt(2*math.log(2*N*((N)**d))/N)+math.sqrt(2/N*math.log(1/f))+1/N
 
 
 def p4_3(x):
-    d=50
-    f=0.05
-    res=float(x[0])
-    return [res-math.sqrt(1/10000*(2*res+math.log(6*(2*10000)**d/f)))]
+    d = 50
+    f = 0.05
+    #N=10000
+    N=5
 
 
-# print(p4_1(50, 0.05)) # 0.6322
-# print(p4_2(50, 0.05))  # 0.3313
-# print(p4_5(50, 0.05))  # 0.8604
-# print(fsolve(p4_3, [1]))  # [0.22369829]
-
-## ????????
-# def p4_4(x):
-#     d=50
-#     f=0.05
-#     res=float(x[0])
-#     return [res-math.sqrt(1/2/10000*(4*res*(1+res)+math.log(4*(10000)**(2*d)/f)))]
+    res = float(x[0])
+    return [res-math.sqrt(1/N*(2*res+math.log(6*(2*N)**d/f)))]
 
 
-# print(fsolve(p4_4, [1]))
+def p4_4(x):
+    d = 50
+    f = 0.05
+    #N=10000
+    N=5
 
+
+    res = float(x[0])
+    #a = math.log(4*(10000)**100/f)
+    return [res-math.sqrt(1/(2*N)*(4*res*(1+res) + math.log(4/f)+100*math.log(N)))]
+
+def p4_5(d,f,N):
+    return math.sqrt(16/N*(math.log(2*((N)**d)/math.sqrt(f))))
+
+
+
+
+#Q4
+
+# print(p4_1(50, 0.05,10000)) # 0.6322
+# print(p4_2(50, 0.05,10000))  # 0.3313
+# print(fsolve(p4_3, [1]))  # 0.22369829
+
+# print(fsolve(p4_4, [1]))  # 0.21522805
+
+# print(p4_5(50, 0.05,10000))  # 0.8604
+
+#Q5
+
+print(p4_1(50, 0.05,5)) # 0.6322
+print(p4_2(50, 0.05,5))  # 0.3313
+print(fsolve(p4_3, [1]))  # 0.22369829
+
+print(fsolve(p4_4, [1]))  # 0.21522805
+
+print(p4_5(50, 0.05,5))  # 0.8604
 
 # Problem 17-18
 def generateData():
