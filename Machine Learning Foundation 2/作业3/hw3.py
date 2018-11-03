@@ -149,19 +149,16 @@ def logistic_regression(X,Y,eta,iter_nums,flag):
           如果falg=True,则采用SGD
     '''
     rows,cols=X.shape
-    print(X.shape)
-    print(Y.shape)
     theta=np.zeros((cols,1))
     num=0
 
     for i in range(iter_nums):
         if not flag:
-            #derr=(-1*X*Y).T.dot(sigmoid(-1*X.dot(theta)*Y))/rows
-            derr = (-1*X*Y).T.dot(sigmoid(-1*X.dot(theta)*Y))/rows
+            derr = (-1*Y*X).T.dot(sigmoid(-1*X.dot(theta)*Y))/rows
         else:
             if num>=rows:
                 num=0
-            derr = -Y[num, 0]*X[num: num+1, :].T * sigmoid(-1*X[num, :].dot(theta)[0]*Y[num, 0])
+            derr = (-Y[num, 0]*X[num: num+1, :]).T * sigmoid(-1*Y[num, 0]*X[num:num+1, :].dot(theta)[0])
             num+=1
         theta-=eta*derr
 
@@ -185,12 +182,12 @@ eta=0.01
 T=2000
 flag=False
 theta=logistic_regression(X,Y,eta,T,flag)
-Ein=evaluate(X,Y,theta)
-print('Ein:',Ein)
-Xtest, Ytest = load_data(
-    '/Users/yanmk/学习/技术学习/人工智能/机器学习/Machine Learning Foundations/Machine Learning Foundation 2/作业3/hw3_test.dat')
-Eout=evaluate(Xtest,Ytest,theta)
-print('Eout:',Eout)
+# Ein=evaluate(X,Y,theta)
+# print('Ein:',Ein)
+# Xtest, Ytest = load_data(
+#     '/Users/yanmk/学习/技术学习/人工智能/机器学习/Machine Learning Foundations/Machine Learning Foundation 2/作业3/hw3_test.dat')
+# Eout=evaluate(Xtest,Ytest,theta)
+# print('Eout:',Eout)
 
 # P18
 # Ein: 0.466
@@ -204,15 +201,15 @@ print('Eout:',Eout)
 
 #20:
 
-# flag=True
-# eta=0.001
-# theta = logistic_regression(X, Y, eta, T, flag)
-# Ein = evaluate(X, Y, theta)
-# print('Ein:', Ein)
-# Xtest, Ytest = load_data(
-#     '/Users/yanmk/学习/技术学习/人工智能/机器学习/Machine Learning Foundations/Machine Learning Foundation 2/作业3/hw3_test.dat')
-# Eout = evaluate(Xtest, Ytest, theta)
-# print('Eout:', Eout)
+flag=True
+eta=0.001
+theta = logistic_regression(X, Y, eta, T, flag)
+Ein = evaluate(X, Y, theta)
+print('Ein:', Ein)
+Xtest, Ytest = load_data(
+    '/Users/yanmk/学习/技术学习/人工智能/机器学习/Machine Learning Foundations/Machine Learning Foundation 2/作业3/hw3_test.dat')
+Eout = evaluate(Xtest, Ytest, theta)
+print('Eout:', Eout)
 
 # # Ein: 0.464
 # # Eout: 0.473
