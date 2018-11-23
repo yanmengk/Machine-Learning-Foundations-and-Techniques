@@ -1,6 +1,8 @@
-# 机器学习基石课程
+# 机器学习基石与机器学习技法
 
-本仓库收藏台湾大学林轩田老师Coursera上《机器学习基石》上下课程的PPT、作业题含解答，学习过后受益良多，感谢老师和其他同学资源的无私分享。
+## 机器学习基石课程
+
+收录台湾大学林轩田老师Coursera上《机器学习基石》上下课程的PPT、作业题含解答，学习过后受益良多，感谢老师和其他同学资源的无私分享。
 
 ### 课程内容
 
@@ -19,3 +21,12 @@
 [机器学习基石和技法作业](https://github.com/AceCoooool/MLF-MLT)
 
 [机器学习基石作业一](https://github.com/yew1eb/machine-learning/blob/master/perceptron/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%9F%B3HW1.md)
+
+
+
+## 机器学习技法课程
+
+收录台湾大学林轩田老师《机器学习技法》课程的主要内容：
+
+[课程主页](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
